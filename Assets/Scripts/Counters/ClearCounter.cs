@@ -10,34 +10,34 @@ public class ClearCounter : BaseCounter
         {
             if (player.HasKitchenObject())
             {
-                player.GetKitchenObejct().SetKitchenObjectParent(this);
+                player.GetKitchenObject().SetKitchenObjectParent(this);
             }
         }
         else
         {
             if (player.HasKitchenObject())
             {
-                if (player.GetKitchenObejct().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
-                    if (plateKitchenObject.TryAddIngredients(GetKitchenObejct().GetKitchenObjectSO()))
+                    if (plateKitchenObject.TryAddIngredients(GetKitchenObject().GetKitchenObjectSO()))
                     {
-                        GetKitchenObejct().DestroySelf();
+                        GetKitchenObject().DestroySelf();
                     }
                 }
                 else
                 {
-                    if (GetKitchenObejct().TryGetPlate(out plateKitchenObject))
+                    if (GetKitchenObject().TryGetPlate(out plateKitchenObject))
                     {
-                        if (plateKitchenObject.TryAddIngredients(player.GetKitchenObejct().GetKitchenObjectSO()))
+                        if (plateKitchenObject.TryAddIngredients(player.GetKitchenObject().GetKitchenObjectSO()))
                         {
-                            player.GetKitchenObejct().DestroySelf();
+                            player.GetKitchenObject().DestroySelf();
                         }
                     }
                 }
             }
             else
             {
-                GetKitchenObejct().SetKitchenObjectParent(player);
+                GetKitchenObject().SetKitchenObjectParent(player);
             }
         }
     }
